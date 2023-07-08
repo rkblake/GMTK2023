@@ -1,7 +1,7 @@
 extends RigidBody
 
 
-const SPEED = 50
+const SPEED = 100
 
 
 func _physics_process(delta):
