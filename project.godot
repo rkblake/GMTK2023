@@ -11,11 +11,12 @@ config_version=4
 [application]
 
 config/name="GMTK2023"
-run/main_scene="res://World1.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://main_menu.tscn"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
 window/size/resizable=false
 
 [gui]
@@ -36,3 +37,6 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/filters/use_nearest_mipmap_filter=true
+quality/filters/msaa=1
+quality/filters/use_fxaa=true
