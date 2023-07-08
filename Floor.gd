@@ -17,9 +17,10 @@ func get_input() -> Vector3:
 	return input
 
 func _physics_process(delta):
+	return
 	var input = get_input().normalized()
 	if input != Vector3.ZERO:
 		add_torque(input * SPEED)
 	else:
 #		print(angular_velocity)
-		angular_velocity = angular_velocity.move_toward(Vector3.ZERO, 0.5 * delta)
+		angular_velocity = angular_velocity.move_toward(Vector3.ZERO, 0.1 * delta)

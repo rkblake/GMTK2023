@@ -1,52 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/robot/robot_test.fbx" type="PackedScene" id=1]
-[ext_resource path="res://assets/robot/robot_test1.fbx" type="PackedScene" id=2]
 [ext_resource path="res://assets/robot/robot_PuttIntro1.fbx" type="PackedScene" id=3]
+[ext_resource path="res://Robot.gd" type="Script" id=4]
 
 [node name="Robot" type="Spatial"]
-
-[node name="robot_test" parent="." instance=ExtResource( 1 )]
-visible = false
-
-[node name="polySurface2" parent="robot_test/RootNode/group1" index="1"]
-transform = Transform( 90.7757, 1.49012e-05, -41.9497, 41.9497, -4.76837e-05, 90.7757, -2.98023e-06, -100, -4.76837e-05, 0, 0.137954, 0 )
-
-[node name="polySurface1" parent="robot_test/RootNode" index="13"]
-transform = Transform( 0.843516, 0.537104, 0, -0.537104, 0.843516, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Plane" parent="robot_test/RootNode" index="14"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00772612, 0 )
-
-[node name="robot_test1" parent="." instance=ExtResource( 2 )]
-visible = false
-
-[node name="polySurface2" parent="robot_test1/RootNode/group1" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Cylinder008" parent="robot_test1/RootNode/group1" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="polySurface1" parent="robot_test1/RootNode" index="13"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Plane" parent="robot_test1/RootNode" index="14"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00772612, 0 )
+script = ExtResource( 4 )
 
 [node name="robot_PuttIntro1" parent="." instance=ExtResource( 3 )]
 
 [node name="Plane" parent="robot_PuttIntro1/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.769651, -0.10379, -0.629972, -0.0172246, 0.982964, -0.182991, 0.638232, 0.15169, 0.754751, 0, -0.00357342, 0 )
 
 [node name="polySurface2" parent="robot_PuttIntro1/RootNode" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( -0.946651, -0.00516998, 0.32222, -0.0640888, 0.98292, -0.172516, -0.315825, -0.183963, -0.930813, -0.0733341, 0.00388631, -0.00488501 )
+visible = false
 
 [node name="Cylinder008" parent="robot_PuttIntro1/RootNode" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.799922, 0, -0.600104, 0, 1, 0, 0.600104, 0, 0.799922, 0.000456376, -0.00734726, 0.000204499 )
 
 [node name="polySurface1" parent="robot_PuttIntro1/RootNode" index="3"]
-transform = Transform( 0.978681, 0.205387, 0, -0.205387, 0.978681, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.91141, -0.0201941, -0.411004, -0.0995699, 0.958293, -0.267883, 0.399272, 0.285075, 0.871387, -0.00219306, 0.00158126, -0.0124675 )
 
-[editable path="robot_test"]
-[editable path="robot_test1"]
+[node name="AnimationPlayer" parent="robot_PuttIntro1/RootNode" index="5"]
+method_call_mode = 1
+
 [editable path="robot_PuttIntro1"]
