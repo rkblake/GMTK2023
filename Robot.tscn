@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/robot/robot_test.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/robot/robot_test1.fbx" type="PackedScene" id=2]
+[ext_resource path="res://assets/robot/robot_PuttIntro1.fbx" type="PackedScene" id=3]
 
 [node name="Robot" type="Spatial"]
 
 [node name="robot_test" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="polySurface2" parent="robot_test/RootNode/group1" index="1"]
 transform = Transform( 90.7757, 1.49012e-05, -41.9497, 41.9497, -4.76837e-05, 90.7757, -2.98023e-06, -100, -4.76837e-05, 0, 0.137954, 0 )
@@ -15,4 +18,35 @@ transform = Transform( 0.843516, 0.537104, 0, -0.537104, 0.843516, 0, 0, 0, 1, 0
 [node name="Plane" parent="robot_test/RootNode" index="14"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00772612, 0 )
 
+[node name="robot_test1" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="polySurface2" parent="robot_test1/RootNode/group1" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Cylinder008" parent="robot_test1/RootNode/group1" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="polySurface1" parent="robot_test1/RootNode" index="13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Plane" parent="robot_test1/RootNode" index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00772612, 0 )
+
+[node name="robot_PuttIntro1" parent="." instance=ExtResource( 3 )]
+
+[node name="Plane" parent="robot_PuttIntro1/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="polySurface2" parent="robot_PuttIntro1/RootNode" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Cylinder008" parent="robot_PuttIntro1/RootNode" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="polySurface1" parent="robot_PuttIntro1/RootNode" index="3"]
+transform = Transform( 0.978681, 0.205387, 0, -0.205387, 0.978681, 0, 0, 0, 1, 0, 0, 0 )
+
 [editable path="robot_test"]
+[editable path="robot_test1"]
+[editable path="robot_PuttIntro1"]
