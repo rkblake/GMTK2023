@@ -372,7 +372,7 @@ ball_path = NodePath("../../Ball")
 
 [node name="Flag" parent="Pivot" instance=ExtResource( 6 )]
 transform = Transform( 0.702787, -0.711401, -6.12254e-08, -0.49822, -0.492187, 0.713813, -0.507807, -0.501658, -0.700336, -26.2844, -19.0368, -18.9126 )
-next_scene = "World3"
+next_scene = "World2"
 
 [node name="Ball" parent="Pivot" instance=ExtResource( 2 )]
 transform = Transform( 1, 7.45058e-09, 1.49012e-08, 2.23517e-08, 1, 0, 7.45058e-09, 0, 1, 2.38419e-06, 38.6663, 3.8147e-06 )
@@ -384,8 +384,12 @@ can_sleep = false
 [node name="Label" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 2
 custom_fonts/font = ExtResource( 7 )
 text = "Right click drag to move planet
-Space to hit ball"
+Space to hit ball
+R to reset"
 
 [editable path="Pivot/World/World_1"]
