@@ -1,10 +1,11 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://CameraController.gd" type="Script" id=1]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Robot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Floor.gd" type="Script" id=4]
 [ext_resource path="res://assets/World_1.fbx" type="PackedScene" id=5]
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ProceduralSky" id=2]
 sky_horizon_color = Color( 0.647059, 0.839216, 0.945098, 1 )
@@ -123,218 +124,220 @@ radius = 37.5
 
 [node name="World1" type="Spatial"]
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.6663, 0 )
-gravity_scale = 0.0
-can_sleep = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
-[node name="World" type="RigidBody" parent="."]
-transform = Transform( -0.653802, -0.750483, -0.0965341, 0.637522, -0.477635, -0.604509, 0.407566, -0.456771, 0.790728, 0, 0, 0 )
-mode = 1
-mass = 50.0
-gravity_scale = 0.0
-can_sleep = false
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-script = ExtResource( 4 )
-
-[node name="World_1" parent="World" instance=ExtResource( 5 )]
-transform = Transform( 48.5092, 50.3927, -27.0634, -51.9459, 53.6667, 6.81945, 23.9474, 14.3337, 69.6137, 0, 0, 0 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/bumpWalls4" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/bumpWalls4/StaticBody"]
-shape = SubResource( 8 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/tunnelWide1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/tunnelWide1/StaticBody"]
-shape = SubResource( 9 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface27" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface27/StaticBody"]
-shape = SubResource( 11 )
-
-[node name="polySurface28" parent="World/World_1/RootNode/group6/skewCorner1z" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface28" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface28/StaticBody"]
-shape = SubResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface29" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface29/StaticBody"]
-shape = SubResource( 12 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface30" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface30/StaticBody"]
-shape = SubResource( 13 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface31" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/skewCorner1z/polySurface31/StaticBody"]
-shape = SubResource( 14 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundLargeCorner3" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundLargeCorner3/StaticBody"]
-shape = SubResource( 15 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundCornerC2" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundCornerC2/StaticBody"]
-shape = SubResource( 16 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/support_bottom1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/support_bottom1/StaticBody"]
-shape = SubResource( 17 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/bumpWalls1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/bumpWalls1/StaticBody"]
-shape = SubResource( 18 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/bumpWalls2" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/bumpWalls2/StaticBody"]
-shape = SubResource( 19 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/rampB1/polySurface32" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/rampB1/polySurface32/StaticBody"]
-shape = SubResource( 20 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/rampB1/polySurface33" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/rampB1/polySurface33/StaticBody"]
-shape = SubResource( 21 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/rampB1/polySurface34" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/rampB1/polySurface34/StaticBody"]
-shape = SubResource( 22 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/rampB1/polySurface35" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/rampB1/polySurface35/StaticBody"]
-shape = SubResource( 23 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/rampB1/polySurface36" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/rampB1/polySurface36/StaticBody"]
-shape = SubResource( 24 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundCornerC3" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundCornerC3/StaticBody"]
-shape = SubResource( 25 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/end1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/end1/StaticBody"]
-shape = SubResource( 10 )
-
-[node name="pSphere4" parent="World/World_1/RootNode/group6" index="12"]
-transform = Transform( 1.04382, -2.23517e-08, -2.98023e-08, 0, 1.04382, -1.49012e-08, -2.98023e-08, -7.45058e-09, 1.04382, -0.000204358, 1.81899e-12, 7.27596e-12 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundLargeCornerOpen1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundLargeCornerOpen1/StaticBody"]
-shape = SubResource( 26 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/obstacleDiamond" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/obstacleDiamond/StaticBody"]
-shape = SubResource( 27 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundCornerB1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundCornerB1/StaticBody"]
-shape = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/ramp2" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/ramp2/StaticBody"]
-shape = SubResource( 28 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/holeRound1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/holeRound1/StaticBody"]
-shape = SubResource( 6 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundCornerA1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundCornerA1/StaticBody"]
-shape = SubResource( 29 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/narrowBlock2" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/narrowBlock2/StaticBody"]
-shape = SubResource( 30 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/castle2" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/castle2/StaticBody"]
-shape = SubResource( 31 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/group1/windmill1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/group1/windmill1/StaticBody"]
-shape = SubResource( 32 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/rampLarge1/polySurface26" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/rampLarge1/polySurface26/StaticBody"]
-shape = SubResource( 35 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundCornerA3" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundCornerA3/StaticBody"]
-shape = SubResource( 36 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/roundCornerC1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/roundCornerC1/StaticBody"]
-shape = SubResource( 37 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/narrowRound1" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/narrowRound1/StaticBody"]
-shape = SubResource( 33 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/group6/bumpWalls3" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/group6/bumpWalls3/StaticBody"]
-shape = SubResource( 34 )
-
-[node name="StaticBody" type="StaticBody" parent="World/World_1/RootNode/polySurface6" index="0"]
-
-[node name="CollisionShape" type="CollisionShape" parent="World/World_1/RootNode/polySurface6/StaticBody"]
-shape = SubResource( 38 )
-
-[node name="CollisionShape" type="CollisionShape" parent="World"]
-shape = SubResource( 4 )
-
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.650244, 0.759725, 0, -0.759725, 0.650244, 0, 73.5502, 22.9366 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 80, 33 )
 fov = 35.0
 near = 1.0
 far = 1000.0
 script = ExtResource( 1 )
+ball_path = NodePath("../Pivot/Ball")
 
-[node name="Robot" parent="." instance=ExtResource( 3 )]
-transform = Transform( -45.9619, 0, 45.9619, 0, 65, 0, -45.9619, 0, -45.9619, -4.86908, 37.3681, 0 )
+[node name="Pivot" type="Spatial" parent="."]
+script = ExtResource( 4 )
+
+[node name="World" type="StaticBody" parent="Pivot"]
+transform = Transform( -0.653802, -0.750483, -0.0965341, 0.637522, -0.477635, -0.604509, 0.407566, -0.456771, 0.790728, 0, 0, 0 )
+input_capture_on_drag = true
+
+[node name="World_1" parent="Pivot/World" instance=ExtResource( 5 )]
+transform = Transform( 48.5092, 50.3927, -27.0634, -51.9459, 53.6667, 6.81945, 23.9474, 14.3337, 69.6137, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/bumpWalls4" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/bumpWalls4/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/tunnelWide1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/tunnelWide1/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface27" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface27/StaticBody"]
+shape = SubResource( 11 )
+
+[node name="polySurface28" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface28" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface28/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface29" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface29/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface30" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface30/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface31" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/skewCorner1z/polySurface31/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundLargeCorner3" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundLargeCorner3/StaticBody"]
+shape = SubResource( 15 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundCornerC2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundCornerC2/StaticBody"]
+shape = SubResource( 16 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/support_bottom1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/support_bottom1/StaticBody"]
+shape = SubResource( 17 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/bumpWalls1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/bumpWalls1/StaticBody"]
+shape = SubResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/bumpWalls2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/bumpWalls2/StaticBody"]
+shape = SubResource( 19 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface32" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface32/StaticBody"]
+shape = SubResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface33" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface33/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface34" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface34/StaticBody"]
+shape = SubResource( 22 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface35" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface35/StaticBody"]
+shape = SubResource( 23 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface36" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/rampB1/polySurface36/StaticBody"]
+shape = SubResource( 24 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundCornerC3" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundCornerC3/StaticBody"]
+shape = SubResource( 25 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/end1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/end1/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="pSphere4" parent="Pivot/World/World_1/RootNode/group6" index="12"]
+transform = Transform( 1.04382, -2.23517e-08, -2.98023e-08, 0, 1.04382, -1.49012e-08, -2.98023e-08, -7.45058e-09, 1.04382, -0.000204358, 1.81899e-12, 7.27596e-12 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundLargeCornerOpen1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundLargeCornerOpen1/StaticBody"]
+shape = SubResource( 26 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/obstacleDiamond" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/obstacleDiamond/StaticBody"]
+shape = SubResource( 27 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundCornerB1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundCornerB1/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/ramp2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/ramp2/StaticBody"]
+shape = SubResource( 28 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/holeRound1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/holeRound1/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundCornerA1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundCornerA1/StaticBody"]
+shape = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/narrowBlock2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/narrowBlock2/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/castle2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/castle2/StaticBody"]
+shape = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/group1/windmill1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/group1/windmill1/StaticBody"]
+shape = SubResource( 32 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/rampLarge1/polySurface26" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/rampLarge1/polySurface26/StaticBody"]
+shape = SubResource( 35 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundCornerA3" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundCornerA3/StaticBody"]
+shape = SubResource( 36 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/roundCornerC1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/roundCornerC1/StaticBody"]
+shape = SubResource( 37 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/narrowRound1" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/narrowRound1/StaticBody"]
+shape = SubResource( 33 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/group6/bumpWalls3" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/group6/bumpWalls3/StaticBody"]
+shape = SubResource( 34 )
+
+[node name="StaticBody" type="StaticBody" parent="Pivot/World/World_1/RootNode/polySurface6" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World/World_1/RootNode/polySurface6/StaticBody"]
+shape = SubResource( 38 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/World"]
+shape = SubResource( 4 )
+
+[node name="Robot" parent="Pivot/World" instance=ExtResource( 3 )]
+transform = Transform( 11.3175, 41.4389, -48.7825, 55.4878, -31.0463, -13.4996, -31.9065, -39.2931, -40.7803, 27.0064, -14.1941, -22.1193 )
 __meta__ = {
 "_editor_description_": ""
 }
+ball_path = NodePath("../../Ball")
 
-[editable path="World/World_1"]
+[node name="Flag" parent="Pivot" instance=ExtResource( 6 )]
+transform = Transform( 0.702787, -0.711401, -6.12254e-08, -0.49822, -0.492187, 0.713813, -0.507807, -0.501658, -0.700336, -26.2844, -19.0368, -18.9126 )
+next_scene = "World3"
+
+[node name="Ball" parent="Pivot" instance=ExtResource( 2 )]
+transform = Transform( 1, 7.45058e-09, 1.49012e-08, 2.23517e-08, 1, 0, 7.45058e-09, 0, 1, 2.38419e-06, 38.6663, 3.8147e-06 )
+gravity_scale = 0.0
+can_sleep = false
+
+[editable path="Pivot/World/World_1"]

@@ -1,21 +1,22 @@
 extends Camera
 
 onready var world = get_parent().find_node("World")
-onready var ball = get_parent().find_node("Ball")
-
-const SPHERE_RAD = 37
+export var ball_path: NodePath; onready var ball = get_node(ball_path)
 
 var ball_last_position
+var ball_initial_height
+var initial_position
+
+var dragging = false
 
 func _ready():
-	ball_last_position = global_translation
+	ball_last_position = ball.global_translation
+	ball_initial_height = ball_last_position.length()
+	initial_position = global_translation
 
 func _process(_delta):
-	return
-	var x = Vector3(ball_last_position - ball.global_translation).normalized()
-	x *= 100
-	var y = Vector3(world.global_translation - ball.global_translation).normalized()
-	y *= -100
-	look_at_from_position(y, ball.global_translation, Vector3.UP)
-	
-	ball_last_position = ball.global_translation
+	var ball_height = ball.global_translation.length() - ball_initial_height
+	global_translation = initial_position + (transform.basis.z * (ball_height))
+
+func _input(_event):
+	pass

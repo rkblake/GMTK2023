@@ -9,17 +9,17 @@ script = ExtResource( 4 )
 [node name="robot_PuttIntro1" parent="." instance=ExtResource( 3 )]
 
 [node name="Plane" parent="robot_PuttIntro1/RootNode" index="0"]
-transform = Transform( 0.769651, -0.10379, -0.629972, -0.0172246, 0.982964, -0.182991, 0.638232, 0.15169, 0.754751, 0, -0.00357342, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="polySurface2" parent="robot_PuttIntro1/RootNode" index="1"]
-transform = Transform( -0.946651, -0.00516998, 0.32222, -0.0640888, 0.98292, -0.172516, -0.315825, -0.183963, -0.930813, -0.0733341, 0.00388631, -0.00488501 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 visible = false
 
 [node name="Cylinder008" parent="robot_PuttIntro1/RootNode" index="2"]
-transform = Transform( 0.799922, 0, -0.600104, 0, 1, 0, 0.600104, 0, 0.799922, 0.000456376, -0.00734726, 0.000204499 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="polySurface1" parent="robot_PuttIntro1/RootNode" index="3"]
-transform = Transform( 0.91141, -0.0201941, -0.411004, -0.0995699, 0.958293, -0.267883, 0.399272, 0.285075, 0.871387, -0.00219306, 0.00158126, -0.0124675 )
+transform = Transform( 0.978681, 0.205387, 0, -0.205387, 0.978681, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="AnimationPlayer" parent="robot_PuttIntro1/RootNode" index="5"]
 method_call_mode = 1
