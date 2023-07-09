@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Flag.gd" type="Script" id=1]
 [ext_resource path="res://Confetti.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sounds/20428__agfx__drop-ball-in-cup-1.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/521644__fupicat__winfretless.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/273747__nik333__yay-sound.wav" type="AudioStream" id=5]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.5
@@ -37,6 +40,7 @@ material/0 = SubResource( 4 )
 [node name="Area" type="Area" parent="."]
 collision_layer = 2
 collision_mask = 2
+input_ray_pickable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -44,5 +48,14 @@ shape = SubResource( 5 )
 
 [node name="Confetti" parent="." instance=ExtResource( 2 )]
 transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0 )
+
+[node name="BallDrop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="YaySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

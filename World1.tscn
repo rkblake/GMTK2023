@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://CameraController.gd" type="Script" id=1]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/World_1.fbx" type="PackedScene" id=5]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
 [ext_resource path="res://caveat.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/sounds/in-the-garden-of-cosmic-delights-by-otis-galloway-from-filmmusic-io.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/world1_sky.png" type="Texture" id=9]
 
 [sub_resource type="ProceduralSky" id=2]
 sky_horizon_color = Color( 0.647059, 0.839216, 0.945098, 1 )
@@ -378,6 +380,7 @@ next_scene = "World2"
 transform = Transform( 1, 7.45058e-09, 1.49012e-08, 2.23517e-08, 1, 0, 7.45058e-09, 0, 1, 2.38419e-06, 38.6663, 3.8147e-06 )
 gravity_scale = 0.0
 can_sleep = false
+stroke_label_path = NodePath("../../CanvasLayer/StrokeCount")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -391,5 +394,25 @@ custom_fonts/font = ExtResource( 7 )
 text = "Right click drag to move planet
 Space to hit ball
 R to reset"
+
+[node name="StrokeCount" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -331.0
+margin_bottom = 82.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Strokes: 0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -4.0
+autoplay = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 100, 0, 0, 0, 12.4783, 18.0177, 0, -12.9728, 17.331, 0, -30.0838, -56.8543 )
+texture = ExtResource( 9 )
 
 [editable path="Pivot/World/World_1"]

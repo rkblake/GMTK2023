@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main_menu.gd" type="Script" id=1]
 [ext_resource path="res://caveat.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Robot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/hyannis-by-otis-galloway-from-filmmusic-io.mp3" type="AudioStream" id=4]
+[ext_resource path="res://caveat_title.tres" type="DynamicFont" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -41,39 +43,55 @@ margin_bottom = 952.0
 margin_right = 830.0
 margin_bottom = 824.0
 size_flags_horizontal = 3
-custom_constants/separation = 64
+custom_constants/separation = 32
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_left = 319.0
-margin_top = 123.0
-margin_right = 511.0
+margin_left = 224.0
+margin_top = 43.0
+margin_right = 606.0
 margin_bottom = 205.0
 rect_pivot_offset = Vector2( 96, 41 )
 size_flags_horizontal = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 text = "Golfverse"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 269.0
+margin_top = 237.0
 margin_right = 830.0
-margin_bottom = 397.0
-custom_constants/separation = 128
+margin_bottom = 301.0
+custom_constants/separation = 64
 custom_styles/separator = SubResource( 1 )
 
 [node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 461.0
+margin_top = 333.0
 margin_right = 830.0
-margin_bottom = 549.0
+margin_bottom = 421.0
 custom_fonts/font = ExtResource( 2 )
 text = "Start"
 flat = true
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 613.0
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 453.0
 margin_right = 830.0
-margin_bottom = 701.0
+margin_bottom = 541.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+flat = true
+
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 573.0
+margin_right = 830.0
+margin_bottom = 661.0
+custom_fonts/font = ExtResource( 2 )
+text = "Credits"
+flat = true
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 693.0
+margin_right = 830.0
+margin_bottom = 781.0
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 flat = true
@@ -99,5 +117,97 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.290865 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../Robot")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="Credits" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect2" type="ColorRect" parent="Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.258824, 0.0862745, 0.517647, 1 )
+
+[node name="Label" type="Label" parent="Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Team members:
+Kimchilada          Courtney
+Clairbo          BBook
+Hasnot          ChoboChun
+
+The following music was used for this media project:
+Music: Hyannis by Otis Galloway
+Free download: https://filmmusic.io/song/10831-hyannis
+License (CC BY 4.0): https://filmmusic.io/standard-license
+
+The following music was used for this media project:
+Music: In The Garden Of Cosmic Delights by Otis Galloway
+Free download: https://filmmusic.io/song/9574-in-the-garden-of-cosmic-delights
+License (CC BY 4.0): https://filmmusic.io/standard-license
+
+The following music was used for this media project:
+Music: Desert City by Kevin MacLeod
+Free download: https://filmmusic.io/song/3639-desert-city
+License (CC BY 4.0): https://filmmusic.io/standard-license
+
+The following music was used for this media project:
+Music: Space Jazz by Kevin MacLeod
+Free download: https://filmmusic.io/song/8328-space-jazz
+License (CC BY 4.0): https://filmmusic.io/standard-license
+
+Sound: Drop ball in cup-1.wav
+Free download: https://freesound.org/people/AGFX/sounds/20428/
+License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Sound: VS Pop_3.mp3
+Free download: https://freesound.org/people/Vilkas_Sound/sounds/463389/
+License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Sound: Yay sound
+Free download: https://freesound.org/people/Nik333/sounds/273747/
+License (CC BY 3.0): https://creativecommons.org/licenses/by/3.0/"
+align = 1
+valign = 1
+
+[node name="Options" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect2" type="ColorRect" parent="Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.258824, 0.0862745, 0.517647, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/CenterContainer"]
+margin_left = 821.0
+margin_top = 499.0
+margin_right = 1099.0
+margin_bottom = 581.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/CenterContainer/VBoxContainer"]
+margin_right = 278.0
+margin_bottom = 82.0
+
+[node name="MuteLabel" type="Label" parent="Options/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 250.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 2 )
+text = "Mute sound"
+
+[node name="MuteCheckbox" type="CheckBox" parent="Options/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 254.0
+margin_right = 278.0
+margin_bottom = 82.0
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="toggled" from="Options/CenterContainer/VBoxContainer/HBoxContainer/MuteCheckbox" to="." method="_on_MuteCheckbox_toggled"]

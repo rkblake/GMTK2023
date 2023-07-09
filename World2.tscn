@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://CameraController.gd" type="Script" id=1]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/world2/world_2.fbx" type="PackedScene" id=5]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
 [ext_resource path="res://caveat.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/sounds/desert-city-by-kevin-macleod-from-filmmusic-io.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/world2/world_2_sky.png" type="Texture" id=9]
 
 [sub_resource type="ProceduralSky" id=2]
 sky_top_color = Color( 0.4, 1, 0.682353, 1 )
@@ -56,6 +58,38 @@ size = Vector2( 0.202, 0.054 )
 flags_unshaded = true
 albedo_color = Color( 0.109804, 0.286275, 0.223529, 1 )
 
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RootNode/Desert_plant_017001:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.791867, 0.241557, 0.0689205 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "bounce"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("RootNode/Desert_plant_017001:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2, 0.25, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.791867, 0.241557, 0.0689205 ), Vector3( -0.84255, 0.256912, 0.0757224 ), Vector3( -0.845401, 0.257776, 0.0761051 ), Vector3( -0.84255, 0.256912, 0.0757224 ), Vector3( -0.791867, 0.241557, 0.0689205 ), Vector3( -0.791867, 0.241557, 0.0689205 ) ]
+}
+
 [node name="World1" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -101,6 +135,9 @@ shape = SubResource( 8 )
 [node name="CollisionShape" type="CollisionShape" parent="Pivot/World/world_2/RootNode/end/StaticBody"]
 shape = SubResource( 9 )
 
+[node name="Desert_plant_017001" parent="Pivot/World/world_2/RootNode" index="10"]
+transform = Transform( 0.0193069, -0.0609178, 0.00588794, 0.0608572, 0.0184549, -0.008616, 0.00648553, 0.00817565, 0.0633207, -0.791867, 0.241557, 0.0689205 )
+
 [node name="StaticBody" type="StaticBody" parent="Pivot/World/world_2/RootNode/World_2" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Pivot/World/world_2/RootNode/World_2/StaticBody"]
@@ -142,6 +179,11 @@ transform = Transform( -0.874912, 0.35323, -0.331298, 0.118675, 0.819622, 0.5604
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/World/world_2"]
+autoplay = "bounce"
+anims/RESET = SubResource( 18 )
+anims/bounce = SubResource( 17 )
+
 [node name="Flag" parent="Pivot" instance=ExtResource( 6 )]
 transform = Transform( -0.988202, -0.141859, 0.0577357, 0.153158, -0.915298, 0.37252, 0, 0.376968, 0.926226, -11.4909, -64.1544, 28.4534 )
 next_scene = "World3"
@@ -150,14 +192,36 @@ next_scene = "World3"
 transform = Transform( 1, 7.45058e-09, 1.49012e-08, 2.23517e-08, 1, 0, 7.45058e-09, 0, 1, 1.92719e-06, 74.226, 3.8147e-06 )
 gravity_scale = 0.0
 can_sleep = false
+stroke_label_path = NodePath("../../CanvasLayer/StrokeCount")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 7 )
 text = "Right click drag to move planet
 Space to hit ball"
+
+[node name="StrokeCount" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -331.0
+margin_bottom = 82.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Strokes: 0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+autoplay = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 100, 0, 0, 0, 13.4263, 0.666051, 0, -11.9889, 0.745906, 0, -52.7034, -148.604 )
+texture = ExtResource( 9 )
 
 [editable path="Pivot/World/world_2"]
