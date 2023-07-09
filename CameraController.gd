@@ -18,5 +18,6 @@ func _process(_delta):
 	var ball_height = ball.global_translation.length() - ball_initial_height
 	global_translation = initial_position + (transform.basis.z * (ball_height))
 
-func _input(_event):
-	pass
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://main_menu.tscn")
