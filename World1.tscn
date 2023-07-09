@@ -385,13 +385,15 @@ stroke_label_path = NodePath("../../CanvasLayer/StrokeCount")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 13.0
+margin_top = 13.0
+margin_right = 646.0
+margin_bottom = 265.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 2
 custom_fonts/font = ExtResource( 7 )
-text = "Right click drag to move planet
+text = "Left click drag to move planet
 Space to hit ball
 R to reset"
 

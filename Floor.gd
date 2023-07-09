@@ -13,7 +13,7 @@ func _ready():
 	initial_transform = transform
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
 			rotating = true
 			initial_mouse_position = event.position
